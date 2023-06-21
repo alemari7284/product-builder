@@ -1,22 +1,29 @@
 import React from 'react'
 import './CardStyle.css'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { updateChoice } from '../../CarSlice'
+import checked from '../../assets/cd-icon-check.svg'
 
-const Card = ({ car, pool }) => {
+const Card = ({ car, pool, selected }) => {
   const dispatch = useDispatch()
 
-  const handleClick = (e) => {
-    const radio = e.currentTarget.querySelector('input[type="radio"]')
-    if (radio) {
-      radio.checked = true
-      radio.click()
-    }
+  const handleClick = () => {
+    dispatch(
+      updateChoice({
+        id: car.id,
+        name: car.name,
+        price: car.initialPrice,
+        preview: car.colors[0].colorImage,
+        color: car.colors[0].colorName,
+      }),
+    )
   }
 
   return (
-    // <div id={car.id} className="card">
-    <div id={car.id} className="card" onClick={handleClick}>
+    <div
+      className={`card ${selected == car.id ? 'card--selected' : ''}`}
+      onClick={handleClick}
+    >
       <span className="car-name">{car.name}</span>
       <img
         className="car-image"
@@ -24,20 +31,9 @@ const Card = ({ car, pool }) => {
         alt={car.name}
       />
       <span className="price-text">from {car.initialPrice} $</span>
-      <input
-        type="radio"
-        name="car-selection"
-        onClick={() => {
-          dispatch(
-            updateChoice({
-              name: car.name,
-              price: car.initialPrice,
-              preview: car.colors[0].colorImage,
-              color: car.colors[0].colorName,
-            }),
-          )
-        }}
-      />
+      <div className={`radioButton ${selected == car.id ? 'green' : ''}`}>
+        <img src={checked} alt="" />
+      </div>
     </div>
   )
 }

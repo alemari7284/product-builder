@@ -37,12 +37,18 @@
   align-items: center;
 }
 
-input[type='radio'] {
-  width: 40px;
-  height: 40px;
-}
-
 .price-text {
   font-size: 14px;
   color: #888;
+  margin-bottom: 10px;
+}
+
+.radioButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.green {
+  background-color: rgb(153, 227, 41);
 }

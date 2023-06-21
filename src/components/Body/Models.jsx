@@ -4,12 +4,14 @@ import Card from '../Card/Card'
 
 function Models() {
   const carPool = useSelector((state) => state.pool)
-  console.log(carPool)
+  const choice = useSelector((state) => state.choice)
 
   return (
-    <div className="modelsList">
+    <div className={`modelsList`}>
       {carPool?.length > 0 &&
-        carPool.map((el) => <Card key={el.id} car={el} pool={carPool} />)}
+        carPool.map((el) => (
+          <Card selected={choice.id} key={el.id} car={el} pool={carPool} />
+        ))}
     </div>
   )
 }

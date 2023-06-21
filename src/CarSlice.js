@@ -51,6 +51,7 @@ const CarSlice = createSlice({
       },
     ],
     choice: {
+      id: -1,
       name: '',
       color: '',
       accessories: [],
