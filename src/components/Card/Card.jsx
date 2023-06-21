@@ -9,7 +9,7 @@ const Card = ({ car, pool }) => {
   return (
     // <div id={car.id} className="card">
     <div id={car.id} className="card">
-      <h2 className="car-name">{car.name}</h2>
+      <span className="car-name">{car.name}</span>
       <img
         className="car-image"
         src={car.colors[0].colorImage}

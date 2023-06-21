@@ -1,12 +1,12 @@
 import Navbar from './components/Navbar/Navbar'
-import Content from './components/Body/Content'
 import { useSelector } from 'react-redux'
+import Models from './components/Body/Models'
 
 function App() {
   return (
     <div>
       <Navbar />
-      <Content />
+      <Models />
     </div>
   )
 }
