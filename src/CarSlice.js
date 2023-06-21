@@ -51,7 +51,7 @@ const CarSlice = createSlice({
       },
     ],
     choice: {
-      model: '',
+      name: '',
       color: '',
       accessories: [],
     },
@@ -60,7 +60,8 @@ const CarSlice = createSlice({
   },
   reducers: {
     updateChoice: (state, action) => {
-      return {
+      console.log(action.payload)
+      state.choice = {
         ...state.choice,
         ...action.payload,
       }
