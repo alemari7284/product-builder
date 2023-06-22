@@ -1,4 +1,3 @@
-import React from 'react'
 import p1col1 from './assets/prod01/product01_col01.jpg'
 import p1col2 from './assets/prod01/product01_col02.jpg'
 import p1col3 from './assets/prod01/product01_col03.jpg'
@@ -63,10 +62,21 @@ const CarSlice = createSlice({
   },
   reducers: {
     updateChoice: (state, action) => {
-      console.log(action.payload)
-      state.choice = {
-        ...state.choice,
-        ...action.payload,
+      const { previousState } = action.payload
+
+      if (previousState.id !== action.payload.id) {
+        return {
+          ...state,
+          choice: {
+            ...state.choice,
+            ...action.payload,
+          },
+        }
+      } else {
+        return {
+          ...state,
+          choice: {},
+        }
       }
     },
   },

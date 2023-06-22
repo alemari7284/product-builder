@@ -6,7 +6,7 @@ const withNavbar = (WrappedComponent) => {
   return (props) => {
     return (
       <div>
-        <Navbar />
+        <Navbar sectionName={WrappedComponent.name} />
         <WrappedComponent {...props} />
         <Footer />
       </div>

@@ -3,7 +3,7 @@
   height: 4em;
   /* border: 2px solid grey; */
   box-shadow: 12px 12px 14px 12px rgba(0, 0, 0, 0.1);
-  position: sticky;
+  position: relative;
   bottom: 0px;
   z-index: 1222;
   background-color: white;
@@ -18,5 +18,14 @@
   padding-left: 1.5rem;
 }
 
-.preview {
+.firstBlock {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.secondBlock {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }

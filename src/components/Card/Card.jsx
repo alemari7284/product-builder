@@ -6,10 +6,12 @@ import checked from '../../assets/cd-icon-check.svg'
 
 const Card = ({ car, pool, selected }) => {
   const dispatch = useDispatch()
+  const choice = useSelector((state) => state.choice)
 
   const handleClick = () => {
     dispatch(
       updateChoice({
+        previousState: choice,
         id: car.id,
         name: car.name,
         price: car.initialPrice,
@@ -21,7 +23,9 @@ const Card = ({ car, pool, selected }) => {
 
   return (
     <div
-      className={`card ${selected == car.id ? 'card--selected' : ''}`}
+      className={`card ${
+        selected == car.id && !choice.unselect ? 'card--selected' : ''
+      }`}
       onClick={handleClick}
     >
       <span className="car-name">{car.name}</span>
@@ -31,7 +35,11 @@ const Card = ({ car, pool, selected }) => {
         alt={car.name}
       />
       <span className="price-text">from {car.initialPrice} $</span>
-      <div className={`radioButton ${selected == car.id ? 'green' : ''}`}>
+      <div
+        className={`radioButton ${
+          selected == car.id && !choice.unselect ? 'green' : ''
+        }`}
+      >
         <img src={checked} alt="" />
       </div>
     </div>
