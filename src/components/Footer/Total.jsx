@@ -6,7 +6,7 @@ function Total() {
   return (
     <div className="total">
       <span style={{ color: 'grey', fontSize: '1rem' }}>Total</span>
-      <span style={{ fontSize: '2rem' }}>${price}</span>
+      <span style={{ fontSize: '2rem' }}>${price ? price : 0}</span>
     </div>
   )
 }
