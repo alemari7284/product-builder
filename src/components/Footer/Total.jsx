@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 function Total() {
-  const price = useSelector((state) => state.choice.price)
+  const price = useSelector((state) => state.car.choice.price)
   return (
     <div className="total">
       <span style={{ color: 'grey', fontSize: '1rem' }}>Total</span>

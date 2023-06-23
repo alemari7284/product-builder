@@ -6,7 +6,7 @@ import checked from '../../assets/cd-icon-check.svg'
 
 const Card = ({ car, pool, selected }) => {
   const dispatch = useDispatch()
-  const choice = useSelector((state) => state.choice)
+  const choice = useSelector((state) => state.car.choice)
 
   const handleClick = () => {
     dispatch(

@@ -1,32 +1,42 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './NavStyle.css'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { updateSection } from '../../CarSlice'
+import { updateSection } from '../../SectionSlice'
 
 function Sections({ sectionName }) {
   let navigate = useNavigate()
-  const choice = useSelector((state) => state.choice)
+  const choice = useSelector((state) => state.car.choice)
+  const { currentSection } = useSelector((state) => state.sections)
+  const sections = useSelector((state) => state.sections.sections)
 
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (currentSection > 0) {
+      console.log('currentSection', currentSection)
+      console.log('sections', sections)
+      const page = sections.find((el) => el.id === currentSection)
+      console.log('page', page)
+      navigate(`/${page?.name}`)
+    }
+  }, [currentSection])
 
   const handleClick = (e) => {
     const innerText = e.currentTarget.innerText
     switch (innerText) {
       case 'MODELS':
-        navigate('/')
         dispatch(
           updateSection({
-            nextSection: 'Colors',
+            currentSection: 1,
           }),
         )
         break
       case 'COLORS':
         if (Object.values(choice).length > 0 && choice.id != -1) {
-          navigate('/colors')
           dispatch(
             updateSection({
-              nextSection: 'Accessories',
+              currentSection: 2,
             }),
           )
           break
@@ -36,10 +46,9 @@ function Sections({ sectionName }) {
         }
       case 'ACCESSORIES':
         if (Object.values(choice).length > 0 && choice.id != -1) {
-          navigate('/accessories')
           dispatch(
             updateSection({
-              nextSection: 'Summary',
+              currentSection: 3,
             }),
           )
           break
@@ -49,10 +58,9 @@ function Sections({ sectionName }) {
         }
       case 'SUMMARY':
         if (Object.values(choice).length > 0 && choice.id != -1) {
-          navigate('/summary')
           dispatch(
             updateSection({
-              nextSection: 'Buy now',
+              currentSection: 4,
             }),
           )
           break

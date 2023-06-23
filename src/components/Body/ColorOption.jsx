@@ -4,8 +4,8 @@ import { updateChoice } from '../../CarSlice'
 import images from '../../imageExporter'
 
 function ColorOption() {
-  const choice = useSelector((state) => state.choice)
-  const cars = useSelector((state) => state.pool)
+  const choice = useSelector((state) => state.car.choice)
+  const cars = useSelector((state) => state.car.pool)
   const dispatch = useDispatch()
 
   const myColors = cars.find((obj) => obj.name === choice.name)?.colors || []
@@ -13,6 +13,8 @@ function ColorOption() {
   const handleClick = (color) => {
     dispatch(
       updateChoice({
+        previousState: choice,
+
         color: color,
         previewBig: images[color],
       }),

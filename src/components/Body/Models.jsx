@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux'
 import Card from '../Card/Card'
 
 function Models() {
-  const carPool = useSelector((state) => state.pool)
-  const choice = useSelector((state) => state.choice)
+  const carPool = useSelector((state) => state.car.pool)
+  const choice = useSelector((state) => state.car.choice)
 
   return (
     <div className={`modelsList`}>

@@ -3,16 +3,16 @@ import { useSelector, useDispatch } from 'react-redux'
 import ColorOption from './ColorOption'
 
 function Colors() {
-  const state = useSelector((state) => state)
+  const car = useSelector((state) => state.car)
   return (
     <div className="colorsList">
       <img
         width={'750px'}
         height={'356px'}
-        src={state.choice.previewBig}
+        src={car.choice.previewBig}
         alt=""
       />
-      <ColorOption key={state.choice.id} />
+      <ColorOption key={car.choice.id} />
     </div>
   )
 }

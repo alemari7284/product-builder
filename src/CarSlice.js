@@ -59,26 +59,23 @@ const CarSlice = createSlice({
       preview: '',
       previewBig: '',
     },
-    nextSection: 'Colors',
   },
   reducers: {
     updateChoice: (state, action) => {
       const { previousState } = action.payload
-
-      if (state.nextSection == 'Colors') {
-        if (previousState.id !== action.payload.id) {
-          return {
-            ...state,
-            choice: {
-              ...state.choice,
-              ...action.payload,
-            },
-          }
-        } else {
-          return {
-            ...state,
-            choice: {},
-          }
+      console.log('previousState', previousState)
+      if (previousState.id !== action.payload.id) {
+        return {
+          ...state,
+          choice: {
+            ...state.choice,
+            ...action.payload,
+          },
+        }
+      } else {
+        return {
+          ...state,
+          choice: {},
         }
       }
 
@@ -92,15 +89,9 @@ const CarSlice = createSlice({
         }
       }
     },
-    updateSection: (state, action) => {
-      return {
-        ...state,
-        nextSection: action.payload.nextSection,
-      }
-    },
   },
 })
 
-export const { updateChoice, updateSection } = CarSlice.actions
+export const { updateChoice } = CarSlice.actions
 
 export default CarSlice.reducer

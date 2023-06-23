@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 function Preview() {
-  const choice = useSelector((state) => state.choice)
+  const choice = useSelector((state) => state.car.choice)
 
   return (
     <div className="preview">
