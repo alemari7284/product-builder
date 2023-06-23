@@ -38,14 +38,13 @@ function BackButton() {
   }, [sections])
 
   return (
-    <div
-      className={`backButton ${
-        choice.id != -1 && currentSection > 1 ? 'green' : ''
-      }`}
-      onClick={handleClick}
-    >
-      <span>{'<'}</span>
-    </div>
+    <>
+      {currentSection > 1 && (
+        <div className={'backButton'} onClick={handleClick}>
+          <span>{'<'}</span>
+        </div>
+      )}
+    </>
   )
 }
 
