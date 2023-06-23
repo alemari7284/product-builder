@@ -1,38 +1,65 @@
 import React from 'react'
 import './NavStyle.css'
-import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { updateSection } from '../../CarSlice'
 
 function Sections({ sectionName }) {
-  const modelsRef = useRef(null)
-  const colorsRef = useRef(null)
-  const accessoriesRef = useRef(null)
-  const summaryRef = useRef(null)
-
   let navigate = useNavigate()
+  const choice = useSelector((state) => state.choice)
 
-  const resetBorders = () => {
-    modelsRef.current.classList.remove('sections_tab--selected')
-    colorsRef.current.classList.remove('sections_tab--selected')
-    accessoriesRef.current.classList.remove('sections_tab--selected')
-    summaryRef.current.classList.remove('sections_tab--selected')
-  }
+  const dispatch = useDispatch()
 
   const handleClick = (e) => {
     const innerText = e.currentTarget.innerText
     switch (innerText) {
       case 'MODELS':
         navigate('/')
+        dispatch(
+          updateSection({
+            nextSection: 'Colors',
+          }),
+        )
         break
       case 'COLORS':
-        navigate('/colors')
-        break
+        if (Object.values(choice).length > 0 && choice.id != -1) {
+          navigate('/colors')
+          dispatch(
+            updateSection({
+              nextSection: 'Accessories',
+            }),
+          )
+          break
+        } else {
+          console.log('select a model first!')
+          break
+        }
       case 'ACCESSORIES':
-        navigate('/accessories')
-        break
+        if (Object.values(choice).length > 0 && choice.id != -1) {
+          navigate('/accessories')
+          dispatch(
+            updateSection({
+              nextSection: 'Summary',
+            }),
+          )
+          break
+        } else {
+          console.log('select a model first!')
+          break
+        }
       case 'SUMMARY':
-        navigate('/summary')
-        break
+        if (Object.values(choice).length > 0 && choice.id != -1) {
+          navigate('/summary')
+          dispatch(
+            updateSection({
+              nextSection: 'Buy now',
+            }),
+          )
+          break
+        } else {
+          console.log('select a model first!')
+          break
+        }
     }
   }
 

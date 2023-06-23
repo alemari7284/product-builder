@@ -2,11 +2,13 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 function Preview() {
-  const myImage = useSelector((state) => state.choice.preview)
+  const choice = useSelector((state) => state.choice)
 
   return (
     <div className="preview">
-      {myImage && <img width="197px" height="90px" src={myImage} alt="car" />}
+      {choice.preview && (
+        <img width="197px" height="90px" src={choice.preview} alt="car" />
+      )}
     </div>
   )
 }

@@ -1,12 +1,11 @@
 import React from 'react'
-import Total from './Total'
-import Preview from './Preview'
+import NextButton from './NextButton'
 
 function SecondBlock() {
   return (
     <div className="secondBlock">
-      {/* tasto indietro */}
       {/* tasto next */}
+      <NextButton />
     </div>
   )
 }

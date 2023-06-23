@@ -1,8 +1,4 @@
-import p1col1 from './assets/prod01/product01_col01.jpg'
-import p1col2 from './assets/prod01/product01_col02.jpg'
-import p1col3 from './assets/prod01/product01_col03.jpg'
-import p2col1 from './assets/prod02/product02_col01.jpg'
-import p2col2 from './assets/prod02/product02_col02.jpg'
+import images from './imageExporter'
 import { createSlice } from '@reduxjs/toolkit'
 
 const CarSlice = createSlice({
@@ -16,17 +12,20 @@ const CarSlice = createSlice({
           {
             colorId: 1,
             colorName: 'white',
-            colorImage: p1col1,
+            colorImage: images.white,
+            colorHex: '#fff',
           },
           {
             colorId: 2,
             colorName: 'mineralGrey',
-            colorImage: p1col2,
+            colorImage: images.mineralGrey,
+            colorHex: '#303539',
           },
           {
             colorId: 3,
             colorName: 'orangeMetallic',
-            colorImage: p1col3,
+            colorImage: images.orangeMetallic,
+            colorHex: '#cf5a16',
           },
         ],
         initialPrice: 42400,
@@ -38,12 +37,14 @@ const CarSlice = createSlice({
           {
             colorId: 1,
             colorName: 'greyMetallic',
-            colorImage: p2col1,
+            colorImage: images.greyMetallic,
+            colorHex: '#303539',
           },
           {
             colorId: 2,
             colorName: 'whitePerlMetallic',
-            colorImage: p2col2,
+            colorImage: images.whitePerlMetallic,
+            colorHex: '#d1d1d1',
           },
         ],
         initialPrice: 140700,
@@ -56,15 +57,32 @@ const CarSlice = createSlice({
       accessories: [],
       price: 0,
       preview: '',
+      previewBig: '',
     },
-    error: null,
-    isLoading: false,
+    nextSection: 'Colors',
   },
   reducers: {
     updateChoice: (state, action) => {
       const { previousState } = action.payload
 
-      if (previousState.id !== action.payload.id) {
+      if (state.nextSection == 'Colors') {
+        if (previousState.id !== action.payload.id) {
+          return {
+            ...state,
+            choice: {
+              ...state.choice,
+              ...action.payload,
+            },
+          }
+        } else {
+          return {
+            ...state,
+            choice: {},
+          }
+        }
+      }
+
+      if (state.nextSection == 'Accessories') {
         return {
           ...state,
           choice: {
@@ -72,16 +90,17 @@ const CarSlice = createSlice({
             ...action.payload,
           },
         }
-      } else {
-        return {
-          ...state,
-          choice: {},
-        }
+      }
+    },
+    updateSection: (state, action) => {
+      return {
+        ...state,
+        nextSection: action.payload.nextSection,
       }
     },
   },
 })
 
-export const { updateChoice } = CarSlice.actions
+export const { updateChoice, updateSection } = CarSlice.actions
 
 export default CarSlice.reducer
