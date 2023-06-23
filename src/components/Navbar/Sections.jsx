@@ -14,10 +14,7 @@ function Sections({ sectionName }) {
 
   useEffect(() => {
     if (currentSection > 0) {
-      console.log('currentSection', currentSection)
-      console.log('sections', sections)
       const page = sections.find((el) => el.id === currentSection)
-      console.log('page', page)
       navigate(`/${page?.name}`)
     }
   }, [currentSection])

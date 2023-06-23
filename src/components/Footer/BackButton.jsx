@@ -28,12 +28,9 @@ function BackButton() {
   }
 
   useEffect(() => {
-    console.log(choice)
     if (currentSection > 1) {
       const page = sections?.find((el) => el.id == currentSection)
-      console.log('page', page)
       setText(page?.textButton)
-      console.log(page)
     }
   }, [sections])
 

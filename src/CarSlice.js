@@ -79,15 +79,15 @@ const CarSlice = createSlice({
         }
       }
 
-      if (state.nextSection == 'Accessories') {
-        return {
-          ...state,
-          choice: {
-            ...state.choice,
-            ...action.payload,
-          },
-        }
-      }
+      // if (state.nextSection == 'Accessories') {
+      //   return {
+      //     ...state,
+      //     choice: {
+      //       ...state.choice,
+      //       ...action.payload,
+      //     },
+      //   }
+      // }
     },
   },
 })

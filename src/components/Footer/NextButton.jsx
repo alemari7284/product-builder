@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateSection } from '../../SectionSlice'
 import { useNavigate } from 'react-router-dom'
+import { updateChoice } from '../../CarSlice'
 
 function NextButton() {
   const sections = useSelector((state) => state.sections.sections)
@@ -14,12 +15,14 @@ function NextButton() {
   const handleClick = () => {
     let secId = currentSection
     currentSection == 0 ? (secId += 2) : (secId += 1)
-    console.log(secId)
+    console.log('secId', secId)
+
     dispatch(
       updateSection({
         currentSection: secId,
       }),
     )
+
     const page = sections.find((el) => el.id == secId)
     navigate(`/${page.name}`)
   }
@@ -27,11 +30,18 @@ function NextButton() {
   useEffect(() => {
     if (currentSection > 0) {
       const page = sections?.find((el) => el.id == currentSection)
-      console.log('page', page)
       setText(page?.textButton)
-      console.log(page)
+      console.log('currentSection', currentSection)
+      if (currentSection == 3) {
+        dispatch(
+          updateChoice({
+            previousState: choice,
+            preview: choice.previewBig,
+          }),
+        )
+      }
     }
-  }, [sections])
+  }, [currentSection])
 
   return (
     <div
