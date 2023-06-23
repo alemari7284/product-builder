@@ -1,11 +1,12 @@
 import React from 'react'
 import NextButton from './NextButton'
-
+import { useSelector, useDispatch } from 'react-redux'
+import BackButton from './BackButton'
 function SecondBlock() {
   return (
     <div className="secondBlock">
-      {/* tasto next */}
       <NextButton />
+      <BackButton />
     </div>
   )
 }

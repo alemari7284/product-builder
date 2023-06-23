@@ -31,6 +31,7 @@
 }
 
 .nextButton {
+  order: 2;
   display: flex;
   justify-content: space-around;
   background-color: rgb(169, 169, 169);
@@ -43,6 +44,21 @@
   font-size: medium;
   cursor: pointer;
   margin-right: 50px;
+}
+
+.backButton {
+  order: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(169, 169, 169);
+  color: white;
+  align-items: center;
+  width: 50px;
+  height: 40px;
+  border-radius: 35px;
+  margin-right: 30px;
+  cursor: pointer;
 }
 
 .green {

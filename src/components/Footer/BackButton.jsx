@@ -3,29 +3,33 @@ import { useSelector, useDispatch } from 'react-redux'
 import { updateSection } from '../../SectionSlice'
 import { useNavigate } from 'react-router-dom'
 
-function NextButton() {
+function BackButton() {
   const sections = useSelector((state) => state.sections.sections)
   const { currentSection } = useSelector((state) => state.sections)
-  const [text, setText] = useState('colors')
   const choice = useSelector((state) => state.car.choice)
+  const [text, setText] = useState('colors')
+
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const handleClick = () => {
     let secId = currentSection
-    currentSection == 0 ? (secId += 2) : (secId += 1)
-    console.log(secId)
-    dispatch(
-      updateSection({
-        currentSection: secId,
-      }),
-    )
-    const page = sections.find((el) => el.id == secId)
-    navigate(`/${page.name}`)
+    if (currentSection > 1) {
+      secId -= 1
+      console.log(secId)
+      dispatch(
+        updateSection({
+          currentSection: secId,
+        }),
+      )
+      const page = sections.find((el) => el.id == secId)
+      navigate(`/${page.name}`)
+    }
   }
 
   useEffect(() => {
-    if (currentSection > 0) {
+    console.log(choice)
+    if (currentSection > 1) {
       const page = sections?.find((el) => el.id == currentSection)
       console.log('page', page)
       setText(page?.textButton)
@@ -35,15 +39,14 @@ function NextButton() {
 
   return (
     <div
-      className={`nextButton ${
-        choice.id != -1 && Object.values(choice).length > 0 ? 'green' : ''
+      className={`backButton ${
+        choice.id != -1 && currentSection > 1 ? 'green' : ''
       }`}
       onClick={handleClick}
     >
-      <span>{text}</span>
-      <span>{'>'}</span>
+      <span>{'<'}</span>
     </div>
   )
 }
 
-export default NextButton
+export default BackButton
