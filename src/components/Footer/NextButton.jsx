@@ -15,7 +15,6 @@ function NextButton() {
   const handleClick = () => {
     let secId = currentSection
     currentSection == 0 ? (secId += 2) : (secId += 1)
-    console.log('secId', secId)
 
     dispatch(
       updateSection({
@@ -31,7 +30,6 @@ function NextButton() {
     if (currentSection > 0) {
       const page = sections?.find((el) => el.id == currentSection)
       setText(page?.textButton)
-      console.log('currentSection', currentSection)
       if (currentSection == 3) {
         dispatch(
           updateChoice({

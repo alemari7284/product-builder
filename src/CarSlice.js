@@ -95,7 +95,6 @@ const CarSlice = createSlice({
   reducers: {
     updateChoice: (state, action) => {
       const { previousState } = action.payload
-      console.log('previousState', previousState)
       if (previousState.id !== action.payload.id) {
         return {
           ...state,
@@ -132,10 +131,8 @@ const CarSlice = createSlice({
       if (elementIndex !== -1) {
         // se lo trovo, allora lo rimuovo
         myAccessories.splice(elementIndex, 1)
-        console.log('ho rimosso', myAccessories)
       } else {
         myAccessories.push({ optional, price })
-        console.log('ho aggiunto ', myAccessories)
       }
 
       return {

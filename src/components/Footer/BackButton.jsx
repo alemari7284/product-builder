@@ -17,7 +17,6 @@ function BackButton() {
     let secId = currentSection
     if (currentSection > 1) {
       secId -= 1
-      console.log(secId)
 
       dispatch(
         updateSection({
