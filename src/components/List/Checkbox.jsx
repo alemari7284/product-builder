@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateAccessories } from '../../CarSlice'
+import { updatePrice } from '../../CarSlice'
 import iconCheck from '../../assets/cd-icon-check.svg'
 
 function Checkbox({ id, title, price }) {

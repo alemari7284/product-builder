@@ -14,18 +14,21 @@ const CarSlice = createSlice({
             colorName: 'white',
             colorImage: images.white,
             colorHex: '#fff',
+            colorPrice: 0,
           },
           {
             colorId: 2,
             colorName: 'mineralGrey',
             colorImage: images.mineralGrey,
             colorHex: '#303539',
+            colorPrice: 550,
           },
           {
             colorId: 3,
             colorName: 'orangeMetallic',
             colorImage: images.orangeMetallic,
             colorHex: '#cf5a16',
+            colorPrice: 550,
           },
         ],
         accessories: [
@@ -53,12 +56,14 @@ const CarSlice = createSlice({
             colorName: 'greyMetallic',
             colorImage: images.greyMetallic,
             colorHex: '#303539',
+            colorPrice: 0,
           },
           {
             colorId: 2,
             colorName: 'whitePerlMetallic',
             colorImage: images.whitePerlMetallic,
             colorHex: '#d1d1d1',
+            colorPrice: 1800,
           },
         ],
         accessories: [
@@ -109,16 +114,6 @@ const CarSlice = createSlice({
           choice: {},
         }
       }
-
-      // if (state.nextSection == 'Accessories') {
-      //   return {
-      //     ...state,
-      //     choice: {
-      //       ...state.choice,
-      //       ...action.payload,
-      //     },
-      //   }
-      // }
     },
     updateAccessories: (state, action) => {
       const { optional, price } = action.payload
@@ -131,16 +126,25 @@ const CarSlice = createSlice({
       if (elementIndex !== -1) {
         // se lo trovo, allora lo rimuovo
         myAccessories.splice(elementIndex, 1)
+        return {
+          ...state,
+          choice: {
+            ...state.choice,
+            price: state.choice.price - price,
+            accessories: myAccessories,
+          },
+        }
       } else {
+        // altrimenti lo inserisco
         myAccessories.push({ optional, price })
-      }
-
-      return {
-        ...state,
-        choice: {
-          ...state.choice,
-          accessories: myAccessories,
-        },
+        return {
+          ...state,
+          choice: {
+            ...state.choice,
+            price: state.choice.price + price,
+            accessories: myAccessories,
+          },
+        }
       }
     },
   },

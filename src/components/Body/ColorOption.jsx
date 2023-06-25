@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { updateChoice } from '../../CarSlice'
+import { updateChoice, updatePrice } from '../../CarSlice'
 import images from '../../imageExporter'
 
 function ColorOption() {
@@ -10,14 +10,29 @@ function ColorOption() {
 
   const myColors = cars.find((obj) => obj.name === choice.name)?.colors || []
 
-  const handleClick = (color) => {
-    dispatch(
-      updateChoice({
-        previousState: choice,
-        color: color,
-        previewBig: images[color],
-      }),
-    )
+  const handleClick = (color, price) => {
+    const originalPrice = cars.find((obj) => obj.name === choice.name)
+      .initialPrice
+
+    console.log(originalPrice)
+    if (color !== choice.color) {
+      dispatch(
+        updateChoice({
+          previousState: choice,
+          color: color,
+          previewBig: images[color],
+          price: originalPrice + price,
+        }),
+      )
+    } else {
+      dispatch(
+        updateChoice({
+          previousState: choice,
+          color: color,
+          previewBig: images[color],
+        }),
+      )
+    }
   }
 
   return (
@@ -32,7 +47,7 @@ function ColorOption() {
                 el.colorName == choice.color && 'active'
               }`}
               style={{ backgroundColor: el.colorHex }}
-              onClick={() => handleClick(el.colorName)}
+              onClick={() => handleClick(el.colorName, el.colorPrice)}
             />
           )
         })}
