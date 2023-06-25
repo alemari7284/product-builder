@@ -3,7 +3,7 @@
   height: 4em;
   /* border: 2px solid grey; */
   box-shadow: 12px 12px 14px 12px rgba(0, 0, 0, 0.1);
-  position: absolute;
+  position: fixed;
   bottom: 0;
   background-color: white;
   display: flex;

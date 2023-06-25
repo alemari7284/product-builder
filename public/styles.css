@@ -21,6 +21,8 @@ body {
   flex-direction: column;
   position: sticky;
   top: 0;
+  background-color: white;
+  box-shadow: 10px 10px 10px white;
 }
 
 .modelsList {
@@ -102,4 +104,52 @@ body {
 
 .green {
   background-color: rgb(153, 227, 41);
+}
+
+.summary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 120px;
+  padding-bottom: 200px;
+}
+
+.sTitle {
+  margin-top: 20px;
+}
+
+.caption {
+  font-size: 1.3rem;
+  max-width: 70%;
+}
+
+.colorWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+h5.sTitle {
+  margin-top: 50px;
+}
+
+.accList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.accList h5 {
+  margin-bottom: 10px;
+}
+
+.universalWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

@@ -13,17 +13,19 @@ function NextButton() {
   const navigate = useNavigate()
 
   const handleClick = () => {
-    let secId = currentSection
-    currentSection == 0 ? (secId += 2) : (secId += 1)
+    if (currentSection < 4) {
+      let secId = currentSection
+      currentSection == 0 ? (secId += 2) : (secId += 1)
 
-    dispatch(
-      updateSection({
-        currentSection: secId,
-      }),
-    )
+      dispatch(
+        updateSection({
+          currentSection: secId,
+        }),
+      )
 
-    const page = sections.find((el) => el.id == secId)
-    navigate(`/${page.name}`)
+      const page = sections.find((el) => el.id == secId)
+      navigate(`/${page.name}`)
+    }
   }
 
   useEffect(() => {
