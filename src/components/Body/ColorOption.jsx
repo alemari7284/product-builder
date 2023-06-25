@@ -14,7 +14,6 @@ function ColorOption() {
     dispatch(
       updateChoice({
         previousState: choice,
-
         color: color,
         previewBig: images[color],
       }),

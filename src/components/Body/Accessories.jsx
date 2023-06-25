@@ -1,7 +1,11 @@
 import React from 'react'
-
+import AccessoriesList from '../List/AccessoriesList'
 function Accessories() {
-  return <div>Accessories</div>
+  return (
+    <div>
+      <AccessoriesList />
+    </div>
+  )
 }
 
 export default Accessories

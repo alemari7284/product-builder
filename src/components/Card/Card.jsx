@@ -24,9 +24,7 @@ const Card = ({ car, pool, selected }) => {
 
   return (
     <div
-      className={`card ${
-        selected == car.id && !choice.unselect ? 'card--selected' : ''
-      }`}
+      className={`card ${selected == car.id ? 'card--selected' : ''}`}
       onClick={handleClick}
     >
       <span className="car-name">{car.name}</span>
@@ -36,11 +34,7 @@ const Card = ({ car, pool, selected }) => {
         alt={car.name}
       />
       <span className="price-text">from {car.initialPrice} $</span>
-      <div
-        className={`radioButton ${
-          selected == car.id && !choice.unselect ? 'green' : ''
-        }`}
-      >
+      <div className={`radioButton ${selected == car.id ? 'green' : ''}`}>
         <img src={checked} alt="" />
       </div>
     </div>

@@ -28,6 +28,20 @@ const CarSlice = createSlice({
             colorHex: '#cf5a16',
           },
         ],
+        accessories: [
+          {
+            title: 'BMW Charging Station',
+            price: 1080,
+          },
+          {
+            title: 'BMW Maintenance Program Upgrade',
+            price: 1895,
+          },
+          {
+            title: '1 Year BMW Maintenance Program Upgrade',
+            price: 975,
+          },
+        ],
         initialPrice: 42400,
       },
       {
@@ -45,6 +59,24 @@ const CarSlice = createSlice({
             colorName: 'whitePerlMetallic',
             colorImage: images.whitePerlMetallic,
             colorHex: '#d1d1d1',
+          },
+        ],
+        accessories: [
+          {
+            title: 'BMW Laserlight',
+            price: 6300,
+          },
+          {
+            title: 'BMW Charging Station',
+            price: 1080,
+          },
+          {
+            title: 'BMW Maintenance Program Upgrade',
+            price: 1895,
+          },
+          {
+            title: '1 Year BMW Maintenance Program Upgrade',
+            price: 975,
           },
         ],
         initialPrice: 140700,
@@ -89,9 +121,34 @@ const CarSlice = createSlice({
       //   }
       // }
     },
+    updateAccessories: (state, action) => {
+      const { optional, price } = action.payload
+      const myAccessories = [...state.choice.accessories]
+
+      const elementIndex = myAccessories.findIndex(
+        (obj) => obj.optional === optional,
+      )
+
+      if (elementIndex !== -1) {
+        // se lo trovo, allora lo rimuovo
+        myAccessories.splice(elementIndex, 1)
+        console.log('ho rimosso', myAccessories)
+      } else {
+        myAccessories.push({ optional, price })
+        console.log('ho aggiunto ', myAccessories)
+      }
+
+      return {
+        ...state,
+        choice: {
+          ...state.choice,
+          accessories: myAccessories,
+        },
+      }
+    },
   },
 })
 
-export const { updateChoice } = CarSlice.actions
+export const { updateChoice, updateAccessories } = CarSlice.actions
 
 export default CarSlice.reducer

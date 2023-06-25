@@ -56,3 +56,50 @@ body {
 .active {
   box-shadow: 0 0 0 2px #ffb500;
 }
+
+.accessoriesList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 4rem;
+}
+
+.checkBox {
+  border-radius: 5px;
+  border: 1px solid transparent;
+  box-shadow: 0 0 0 2px #ededed;
+  width: 80%;
+  height: 6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+
+.check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  margin-left: 2rem;
+  box-shadow: 0 0 0 2px #ededed;
+  border-radius: 10px;
+}
+
+.priceCheck {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkBox-selected {
+  border: 1px solid orange;
+}
+
+.green {
+  background-color: rgb(153, 227, 41);
+}
