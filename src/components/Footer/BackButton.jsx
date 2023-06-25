@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateSection } from '../../SectionSlice'
+import { updateAccessories } from '../../CarSlice'
 import { useNavigate } from 'react-router-dom'
 
 function BackButton() {
@@ -17,6 +18,7 @@ function BackButton() {
     if (currentSection > 1) {
       secId -= 1
       console.log(secId)
+
       dispatch(
         updateSection({
           currentSection: secId,

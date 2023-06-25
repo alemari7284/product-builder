@@ -12,8 +12,14 @@ function Checkbox({ id, title, price }) {
     const myChoice = choice.accessories.find((obj) => {
       return obj.optional == title
     })
-    setChecked(myChoice)
+    setChecked(myChoice ? true : false)
   }, [choice.accessories])
+
+  useEffect(() => {
+    return () => {
+      setChecked(false)
+    }
+  }, [])
 
   const handleClick = (e) => {
     let optional = e.currentTarget.children[0].innerText

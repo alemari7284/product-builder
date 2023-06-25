@@ -14,6 +14,7 @@ const Card = ({ car, pool, selected }) => {
         previousState: choice,
         id: car.id,
         name: car.name,
+        accessories: [],
         price: car.initialPrice,
         preview: car.colors[0].colorImage,
         previewBig: car.colors[0].colorImage,
