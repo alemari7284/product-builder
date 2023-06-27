@@ -166,6 +166,16 @@ h5.sTitle {
   .modelsList {
     flex-direction: column;
   }
+
+  .checkBox {
+    flex-direction: column;
+    height: fit-content;
+    text-align: center;
+  }
+
+  .priceCheck {
+    flex-direction: column;
+  }
 }
 
 @media all and (max-width: 1024px) {

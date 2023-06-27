@@ -8,10 +8,6 @@ function Models() {
   const choice = useSelector((state) => state.car.choice)
   const error = useSelector((state) => state.car.error)
 
-  useEffect(() => {
-    console.log(error)
-  }, [error])
-
   return (
     <>
       <div className={`modelsList`}>

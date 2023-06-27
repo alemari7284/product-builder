@@ -18,7 +18,7 @@ function SecundaryFooter() {
     if (currentSection === 0) {
       return (
         <Link onClick={handleNextClick} className="fullButton">
-          {sections[currentSection].name} {'Colors >'}
+          {sections[currentSection + 1].name}
         </Link>
       )
     } else {
@@ -31,7 +31,6 @@ function SecundaryFooter() {
           </Link>
           <Link onClick={handleNextClick} className="halfButton">
             {currentSection < 3 ? sections[currentSection + 1].name : 'buy now'}
-            {}
           </Link>
         </>
       )
@@ -40,7 +39,6 @@ function SecundaryFooter() {
 
   const handleBackClick = () => {
     let secId = currentSection
-    console.log('SEC ID', secId)
     if (currentSection > 0) {
       secId -= 1
       dispatch(
@@ -49,7 +47,7 @@ function SecundaryFooter() {
         }),
       )
       const page = sections.find((el) => el.id == secId)
-      console.log(page)
+
       navigate(`/${page.name}`)
     }
   }

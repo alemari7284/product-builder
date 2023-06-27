@@ -14,11 +14,8 @@ function Sections({ sectionName }) {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    console.log('STO QUI')
-    // if (currentSection > 0) {
     const page = sections.find((el) => el.id === currentSection)
     navigate(`/${page?.name}`)
-    // }
   }, [currentSection])
 
   const handleClick = (e) => {
