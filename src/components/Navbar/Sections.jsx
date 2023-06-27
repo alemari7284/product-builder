@@ -30,7 +30,7 @@ function Sections({ sectionName }) {
         case 'MODELS':
           dispatch(
             updateSection({
-              currentSection: 1,
+              currentSection: 0,
             }),
           )
           break
@@ -38,7 +38,7 @@ function Sections({ sectionName }) {
           if (Object.values(choice).length > 0 && choice.id != -1) {
             dispatch(
               updateSection({
-                currentSection: 2,
+                currentSection: 1,
               }),
             )
             break
@@ -50,7 +50,7 @@ function Sections({ sectionName }) {
           if (Object.values(choice).length > 0 && choice.id != -1) {
             dispatch(
               updateSection({
-                currentSection: 3,
+                currentSection: 2,
               }),
             )
             break
@@ -62,7 +62,7 @@ function Sections({ sectionName }) {
           if (Object.values(choice).length > 0 && choice.id != -1) {
             dispatch(
               updateSection({
-                currentSection: 4,
+                currentSection: 3,
               }),
             )
             break
