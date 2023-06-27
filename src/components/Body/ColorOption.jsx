@@ -14,7 +14,6 @@ function ColorOption() {
     const originalPrice = cars.find((obj) => obj.name === choice.name)
       .initialPrice
 
-    console.log(originalPrice)
     if (color !== choice.color) {
       dispatch(
         updateChoice({

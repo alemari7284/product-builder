@@ -79,6 +79,13 @@ function Sections({ sectionName }) {
           error: true,
         }),
       )
+      setTimeout(() => {
+        dispatch(
+          launchError({
+            error: false,
+          }),
+        )
+      }, 2100)
     }
   }
 

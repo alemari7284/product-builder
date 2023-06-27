@@ -1,19 +1,25 @@
-.error-container {
-  position: relative;
-}
-
 .error-message {
-  position: absolute;
-  top: 50%;
+  position: fixed;
+  bottom: 110px;
   left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 20px;
-  background-color: #ff0000;
-  color: #ffffff;
+  transform: translateX(-50%);
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
   opacity: 0;
-  transition: opacity 1.5s ease-in;
+  animation: fadeInOut 2s ease-in-out forwards;
+  z-index: 9999; /* Valore alto per visualizzarsi sopra gli altri elementi */
 }
 
-.error-container.active .error-message {
-  opacity: 1;
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
