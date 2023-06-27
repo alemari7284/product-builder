@@ -1,6 +1,16 @@
 import images from './imageExporter'
 import { createSlice } from '@reduxjs/toolkit'
 
+const initialChoice = {
+  id: -1,
+  name: '',
+  color: '',
+  accessories: [],
+  price: 0,
+  preview: '',
+  previewBig: '',
+}
+
 const CarSlice = createSlice({
   name: 'car',
   initialState: {
@@ -87,15 +97,7 @@ const CarSlice = createSlice({
         initialPrice: 140700,
       },
     ],
-    choice: {
-      id: -1,
-      name: '',
-      color: '',
-      accessories: [],
-      price: 0,
-      preview: '',
-      previewBig: '',
-    },
+    choice: initialChoice,
     error: false,
   },
   reducers: {
@@ -112,7 +114,7 @@ const CarSlice = createSlice({
       } else {
         return {
           ...state,
-          choice: {},
+          choice: initialChoice,
         }
       }
     },

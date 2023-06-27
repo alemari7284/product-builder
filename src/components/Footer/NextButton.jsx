@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateSection } from '../../SectionSlice'
 import { useNavigate } from 'react-router-dom'
-import { updateChoice } from '../../CarSlice'
+import { updateChoice, launchError } from '../../CarSlice'
 
 function NextButton() {
   const sections = useSelector((state) => state.sections.sections)
@@ -14,17 +14,32 @@ function NextButton() {
 
   const handleClick = () => {
     if (currentSection < 4) {
-      let secId = currentSection
-      currentSection == 0 ? (secId += 2) : (secId += 1)
+      if (choice.id != -1) {
+        let secId = currentSection
+        currentSection == 0 ? (secId += 2) : (secId += 1)
 
-      dispatch(
-        updateSection({
-          currentSection: secId,
-        }),
-      )
+        dispatch(
+          updateSection({
+            currentSection: secId,
+          }),
+        )
 
-      const page = sections.find((el) => el.id == secId)
-      navigate(`/${page.name}`)
+        const page = sections.find((el) => el.id == secId)
+        navigate(`/${page.name}`)
+      } else {
+        dispatch(
+          launchError({
+            error: true,
+          }),
+        )
+        setTimeout(() => {
+          dispatch(
+            launchError({
+              error: false,
+            }),
+          )
+        }, 2100)
+      }
     }
   }
 
