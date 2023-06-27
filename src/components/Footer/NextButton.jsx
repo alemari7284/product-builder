@@ -13,7 +13,7 @@ function NextButton() {
   const navigate = useNavigate()
 
   const handleClick = () => {
-    if (currentSection < 4) {
+    if (currentSection < 3) {
       if (choice.id != -1) {
         let secId = currentSection
         secId += 1

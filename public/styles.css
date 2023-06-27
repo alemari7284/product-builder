@@ -130,6 +130,7 @@ body {
 .caption {
   font-size: 1.3rem;
   max-width: 70%;
+  color: grey;
 }
 
 .colorWrapper {

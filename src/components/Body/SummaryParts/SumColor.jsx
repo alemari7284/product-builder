@@ -13,7 +13,7 @@ function SumColor() {
       <div className="colorWrapper">
         <div
           className="colorCircle"
-          style={{ backgroundColor: myColor.colorHex }}
+          style={{ backgroundColor: myColor.colorHex, cursor: 'default' }}
         />
         <div>
           {choice.color} - ${choice.price}
