@@ -96,6 +96,7 @@ const CarSlice = createSlice({
       preview: '',
       previewBig: '',
     },
+    error: false,
   },
   reducers: {
     updateChoice: (state, action) => {
@@ -147,9 +148,15 @@ const CarSlice = createSlice({
         }
       }
     },
+    launchError: (state, action) => {
+      return {
+        ...state,
+        error: action.payload.error,
+      }
+    },
   },
 })
 
-export const { updateChoice, updateAccessories } = CarSlice.actions
+export const { updateChoice, updateAccessories, launchError } = CarSlice.actions
 
 export default CarSlice.reducer

@@ -1,11 +1,9 @@
-import { useSelector } from 'react-redux'
 import Models from './components/Body/Models'
 import Colors from './components/Body/Colors'
 import Accessories from './components/Body/Accessories'
 import Summary from './components/Body/Summary'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import withNavbar from './components/HOC/withNavbar'
-import { useEffect } from 'react'
 
 function App() {
   const ModelsWN = withNavbar(Models)

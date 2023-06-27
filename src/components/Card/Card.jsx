@@ -1,7 +1,7 @@
 import React from 'react'
 import './CardStyle.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { updateChoice } from '../../CarSlice'
+import { updateChoice, launchError } from '../../CarSlice'
 import checked from '../../assets/cd-icon-check.svg'
 
 const Card = ({ car, pool, selected }) => {
@@ -9,6 +9,11 @@ const Card = ({ car, pool, selected }) => {
   const choice = useSelector((state) => state.car.choice)
 
   const handleClick = () => {
+    dispatch(
+      launchError({
+        error: false,
+      }),
+    )
     dispatch(
       updateChoice({
         previousState: choice,

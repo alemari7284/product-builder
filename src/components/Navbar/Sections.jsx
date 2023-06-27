@@ -3,6 +3,7 @@ import './NavStyle.css'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateSection } from '../../SectionSlice'
+import { launchError } from '../../CarSlice'
 
 function Sections({ sectionName }) {
   let navigate = useNavigate()
@@ -20,51 +21,64 @@ function Sections({ sectionName }) {
   }, [currentSection])
 
   const handleClick = (e) => {
-    const innerText = e.currentTarget.innerText
-    switch (innerText) {
-      case 'MODELS':
-        dispatch(
-          updateSection({
-            currentSection: 1,
-          }),
-        )
-        break
-      case 'COLORS':
-        if (Object.values(choice).length > 0 && choice.id != -1) {
+    if (choice && Object.values(choice).length > 0 && choice.name != '') {
+      dispatch(
+        launchError({
+          error: false,
+        }),
+      )
+      const innerText = e.currentTarget.innerText
+      switch (innerText) {
+        case 'MODELS':
           dispatch(
             updateSection({
-              currentSection: 2,
+              currentSection: 1,
             }),
           )
           break
-        } else {
-          console.log('select a model first!')
-          break
-        }
-      case 'ACCESSORIES':
-        if (Object.values(choice).length > 0 && choice.id != -1) {
-          dispatch(
-            updateSection({
-              currentSection: 3,
-            }),
-          )
-          break
-        } else {
-          console.log('select a model first!')
-          break
-        }
-      case 'SUMMARY':
-        if (Object.values(choice).length > 0 && choice.id != -1) {
-          dispatch(
-            updateSection({
-              currentSection: 4,
-            }),
-          )
-          break
-        } else {
-          console.log('select a model first!')
-          break
-        }
+        case 'COLORS':
+          if (Object.values(choice).length > 0 && choice.id != -1) {
+            dispatch(
+              updateSection({
+                currentSection: 2,
+              }),
+            )
+            break
+          } else {
+            console.log('select a model first!')
+            break
+          }
+        case 'ACCESSORIES':
+          if (Object.values(choice).length > 0 && choice.id != -1) {
+            dispatch(
+              updateSection({
+                currentSection: 3,
+              }),
+            )
+            break
+          } else {
+            console.log('select a model first!')
+            break
+          }
+        case 'SUMMARY':
+          if (Object.values(choice).length > 0 && choice.id != -1) {
+            dispatch(
+              updateSection({
+                currentSection: 4,
+              }),
+            )
+            break
+          } else {
+            console.log('select a model first!')
+            break
+          }
+      }
+    } else {
+      dispatch(
+        launchError({
+          error: true,
+        }),
+      )
     }
   }
 

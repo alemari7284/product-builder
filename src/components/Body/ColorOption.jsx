@@ -21,7 +21,10 @@ function ColorOption() {
           previousState: choice,
           color: color,
           previewBig: images[color],
-          price: originalPrice + price,
+          price:
+            originalPrice +
+            price +
+            choice.accessories.reduce((acc, current) => current.price + acc, 0),
         }),
       )
     } else {
