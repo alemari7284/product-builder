@@ -31,7 +31,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(145, 116, 116);
+  background-color: orange;
   color: white;
   text-transform: uppercase;
   text-decoration: none;
@@ -39,4 +39,9 @@
 
 .sec-footer.orange {
   background-color: orange;
+}
+
+.sec-footer .halfButton.grey {
+  background-color: #f1f1f1;
+  color: #5d7c89;
 }

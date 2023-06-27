@@ -7,7 +7,7 @@ function SumModel() {
   return (
     <div className="universalWrapper">
       <h5 className="sTitle">MODEL</h5>
-      <img width={'700px'} height={'333px'} src={choice.preview} alt="" />
+      <img src={choice.preview} alt="" />
       <h1 className="sTitle">{choice.name}</h1>
       <p className="caption">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit

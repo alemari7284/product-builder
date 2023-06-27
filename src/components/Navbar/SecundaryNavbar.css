@@ -1,0 +1,15 @@
+.secundary-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+  padding: 0 1rem;
+}
+
+.secundary-navbar-left {
+  font-size: 2.5rem;
+}
+
+.secundary-navbar-right {
+  color: grey;
+}

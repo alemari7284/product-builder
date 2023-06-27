@@ -24,7 +24,7 @@ function SecundaryFooter() {
     } else {
       return (
         <>
-          <Link onClick={handleBackClick} className="halfButton">
+          <Link onClick={handleBackClick} className="halfButton grey">
             {currentSection === 1
               ? 'Models'
               : sections[currentSection - 1].name}

@@ -42,6 +42,12 @@ body {
   flex-direction: column;
 }
 
+.universalWrapper img,
+.colorsList img {
+  width: 70%;
+  height: auto;
+}
+
 .colorOption {
   display: flex;
   margin-top: 45px;
@@ -156,6 +162,12 @@ h5.sTitle {
   flex-direction: column;
 }
 
+@media all and (max-width: 768px) {
+  .modelsList {
+    flex-direction: column;
+  }
+}
+
 @media all and (max-width: 1024px) {
   .footer {
     display: none !important;
@@ -163,10 +175,20 @@ h5.sTitle {
   .sec-footer {
     display: flex;
   }
+  .navbar {
+    display: none;
+  }
+  .modelsList {
+    padding-left: 38.4px;
+    padding-right: 38.4px;
+  }
 }
 
 @media all and (min-width: 1024px) {
   .sec-footer {
+    display: none !important;
+  }
+  .secundary-navbar {
     display: none !important;
   }
 }
