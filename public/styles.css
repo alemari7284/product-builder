@@ -201,4 +201,10 @@ h5.sTitle {
   .secundary-navbar {
     display: none !important;
   }
+
+  .universalWrapper img,
+  .colorsList img {
+    width: 50%;
+    height: auto;
+  }
 }
