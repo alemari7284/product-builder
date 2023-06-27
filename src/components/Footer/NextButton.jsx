@@ -16,7 +16,7 @@ function NextButton() {
     if (currentSection < 4) {
       if (choice.id != -1) {
         let secId = currentSection
-        currentSection == 0 ? (secId += 2) : (secId += 1)
+        secId += 1
 
         dispatch(
           updateSection({

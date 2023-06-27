@@ -5,7 +5,6 @@ import './FooterStyle.css'
 import { useSelector } from 'react-redux'
 
 function Footer() {
-  const myCar = useSelector((state) => state.choice)
   return (
     <div className="footer">
       <FirstBlock />

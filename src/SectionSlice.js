@@ -4,22 +4,22 @@ const SectionSlice = createSlice({
   initialState: {
     sections: [
       {
-        id: 1,
+        id: 0,
         name: '',
         textButton: 'Colors',
       },
       {
-        id: 2,
+        id: 1,
         name: 'Colors',
         textButton: 'Accessories',
       },
       {
-        id: 3,
+        id: 2,
         name: 'Accessories',
         textButton: 'Summary',
       },
       {
-        id: 4,
+        id: 3,
         name: 'Summary',
         textButton: 'Buy now',
       },

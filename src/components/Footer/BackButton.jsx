@@ -15,7 +15,7 @@ function BackButton() {
 
   const handleClick = () => {
     let secId = currentSection
-    if (currentSection > 1) {
+    if (currentSection > 0) {
       secId -= 1
 
       dispatch(
@@ -29,7 +29,7 @@ function BackButton() {
   }
 
   useEffect(() => {
-    if (currentSection > 1) {
+    if (currentSection > 0) {
       const page = sections?.find((el) => el.id == currentSection)
       setText(page?.textButton)
     }
@@ -37,7 +37,7 @@ function BackButton() {
 
   return (
     <>
-      {currentSection > 1 && (
+      {currentSection > 0 && (
         <div className={'backButton'} onClick={handleClick}>
           <span>{'<'}</span>
         </div>

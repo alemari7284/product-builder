@@ -155,3 +155,18 @@ h5.sTitle {
   align-items: center;
   flex-direction: column;
 }
+
+@media all and (max-width: 1024px) {
+  .footer {
+    display: none !important;
+  }
+  .sec-footer {
+    display: flex;
+  }
+}
+
+@media all and (min-width: 1024px) {
+  .sec-footer {
+    display: none !important;
+  }
+}

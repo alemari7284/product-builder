@@ -1,17 +1,19 @@
 import React from 'react'
 import Navbar from '../Navbar/Navbar'
 import Footer from '../Footer/Footer'
-import ErrorMessage from '../ErrorMessage/ErrorMessage'
-import { useSelector } from 'react-redux'
+import SecundaryFooter from '../Footer/SecundaryFooter'
 
 const withNavbar = (WrappedComponent) => {
   return (props) => {
     return (
-      <div>
-        <Navbar sectionName={WrappedComponent.name} />
-        <WrappedComponent {...props} />
-        <Footer />
-      </div>
+      <>
+        <div>
+          <Navbar sectionName={WrappedComponent.name} />
+          <WrappedComponent {...props} />
+          <Footer />
+          <SecundaryFooter />
+        </div>
+      </>
     )
   }
 }

@@ -5,6 +5,7 @@ function Preview() {
   const choice = useSelector((state) => state.car.choice)
 
   return (
+    // <div className={`firstBlock ${choice.id != -1 ? 'mounted' : ''}`}>
     <div className="preview">
       {choice.preview && (
         <img width="197px" height="90px" src={choice.preview} alt="car" />

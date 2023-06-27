@@ -24,6 +24,19 @@
   align-items: center;
 }
 
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.mounted {
+  animation: slideIn 0.5s;
+}
+
 .secondBlock {
   display: flex;
   justify-content: flex-end;
